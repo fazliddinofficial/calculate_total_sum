@@ -3,34 +3,57 @@ let studentsResults = [{
     html: 8,
     css: 8
 },
-studentTwo = {
+{
     javascript: 7,
     html: 8,
     css: 8
 },
-studentThree = {
+{
     javascript: 6,
     html: 8,
     css: 8
 }];
 
-
-function getElementValue() {
+function getValue() {
     return this.javascript + this.html + this.css;
 }
-let result = 0;
-let finalResult = 0;
 
-for (let i = 0; i < studentsResults.length; i++) {
-    let registNum = i + 1;
-    let eachElement = studentsResults[i];
-    for (let i = 0; i < 1; i++) {
-        result = getElementValue.call(eachElement);
-    }
-    finalResult += result;
-    console.log(`Student ${registNum} total result is ` + result);
-}
-console.log('all students result ' + finalResult);
+let result = studentsResults.reduce(function (acc, value, index, arr) {
+    acc += getValue.call(value);
+    return acc;
+}, 0);
+console.log(result);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function getElementValue() {
+//     return this.javascript + this.html + this.css;
+// }
+// let result = 0;
+// let finalResult = 0;
+
+// for (let i = 0; i < studentsResults.length; i++) {
+//     let registNum = i + 1;
+//     let eachElement = studentsResults[i];
+//     result = getElementValue.call(eachElement);
+//     finalResult += result;
+//     console.log(`Student ${registNum} total result is ` + result);
+// }
+// console.log('all students result ' + finalResult);
 
 
 
